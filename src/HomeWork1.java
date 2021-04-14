@@ -89,7 +89,7 @@ public class HomeWork1 {
 	// считаем сумму пробега каждого класса, находим расходы на каждый класс и общую стоимость расходов
 	static void gsm() {
 		for(int i = 0; i < run_class1.size(); i++) {
-			run_class1_sum = run_class1_sum + Integer.valueOf(run_class1.get(i)); // ����� ������� ������ 1
+			run_class1_sum = run_class1_sum + Integer.valueOf(run_class1.get(i)); // сумма пробега класса 1
 		}
 		for(int i = 0; i < run_class2.size(); i++) {
 			run_class2_sum = run_class2_sum + Integer.valueOf(run_class2.get(i));
@@ -101,21 +101,21 @@ public class HomeWork1 {
 			run_class4_sum = run_class4_sum + Integer.valueOf(run_class4.get(i));
 		}
 		
-		general_class1_sum = (float) (run_class1_sum * 0.125 * 100 * 0.1 * 4.61); // ��������� �������� �� ����� 1
+		general_class1_sum = (float) (run_class1_sum * 0.125 * 100 * 0.1 * 4.61); // стоимость расходов на класс 1
 		general_class2_sum = (float) (run_class2_sum * 0.12 * 100 * 0.1 * 4.89);
 		general_class3_sum = (float) (run_class3_sum * 0.115 * 100 * 0.1 * 4.75);
 		general_class4_sum = (float) (run_class4_sum * 0.2 * 100 * 0.1 * 4.89);
 		
 		gsm_sum = general_class1_sum + general_class2_sum + general_class3_sum + general_class4_sum;
 		
-		 System.out.println("��������� �������� �� �����1: " + general_class1_sum + " �");
-		System.out.println("��������� �������� �� �����1: " + general_class2_sum + " �");
-		System.out.println("��������� �������� �� �����1: " + general_class3_sum + " �");
-		System.out.println("��������� �������� �� �����1: " + general_class4_sum + " �");
-		System.out.println("����� ��������� �������� ���: " + gsm_sum + " �");
+		 System.out.println("Стоимость расходов на Класс1:" + general_class1_sum + " Р");
+		System.out.println("Стоимость расходов на Класс2: " + general_class2_sum + " Р");
+		System.out.println("Стоимость расходов на Класс3: " + general_class3_sum + " Р");
+		System.out.println("Стоимость расходов на Класс4: " + general_class4_sum + " Р");
+		System.out.println("Общая стоимость расходов ГСМ: " + gsm_sum + " Р");
 	}
 	
-	// ������� ��� ���� ������� ������������ � ���� ������ ���������
+	// находим максимальный и минимальный тип авто по расходам 
 	static void type_auto() {
 		test1.add(general_class1_sum);
 		test1.add(general_class2_sum);
@@ -158,16 +158,16 @@ public class HomeWork1 {
 				}
 			}
 		}
-		System.out.println("��� ���� ������� ���������� ��������� ��������: " + type_auto_max);
-		System.out.println("��� ���� ������� ���������� ��������� ��������: " + type_auto_min);
+		System.out.println("Тип авто имеющий наибольшую стоимость расходов: " + type_auto_max);
+		System.out.println("Тип авто имеющий наименьшую стоимость расходов: " + type_auto_min);
 	}
-	// ������� ����� ������ ���� ���� � ���������� ������
+	// заносим общий пробег всех авто в отдельнный список
 	static void mileage() {
 				for(int i = 0; i < car.length; i++) {
 					car_mileage.add(Integer.valueOf(car[i].split("-")[1]));
 				}
 	}
-	// ������� ���. �������� ���� ���� � ��������� ������ ���� ��� ��� �� ������� 0
+	// заносим доп. параметр всех авто в отдельный список если его нет то заносим 0
 	static void argument() {
         for (int i = 0; i < car.length; i++) {
             param = car[i].split("-").length == 3 ? car[i].split("-")[2] : "0";
@@ -176,16 +176,16 @@ public class HomeWork1 {
 	}
 	
 	static void array_sort() {
-		// ������� �� ������� ��� �������� ��� ���������� ���������� �� �������
+		// добавим из массива все значения для дальнейшей сортировки по пробегу
         for(int i = 0; i < car.length; i++) {
         	car_sort1.add(car[i]);
         }
-        // ������� �� ������� ��� �������� ��� ���������� ���������� �� ���. ���������
+        // добавим из массива все значения для дальнейшей сортировки по доп. параметру
         for(int i = 0; i < car.length; i++) {
         	car_sort2.add(car[i]);
         }
 	}
-	// ���� ���. ��������� � ������� ���, �� ������� ���
+	// удалим значения из обоих массивов без доп. параметра
 	static void replace() {
 		 for(int i = 0; i < car_argument.size(); i++) {
 	        	if(car_argument.get(i) == 0) {
@@ -194,7 +194,7 @@ public class HomeWork1 {
 	        	}
 	        }
 	}
-	// ��������� �� �������
+	// проводим сортировку по пробегу банальным методом "пузырька"
 	static void sort1() {
 		for(int j = car_mileage.size() - 1; j > 0; j--) {
         	for (int i = 0; i < j; i++) {
@@ -209,18 +209,18 @@ public class HomeWork1 {
         		}
         	}
         }
-		System.out.println("���������� �� �������");
+		System.out.println("Сортировка по пробегу");
 		
 		for(int i = 0; i < car_sort1.size(); i++) {
         	if(car_sort1.get(i).split("-").length == 3) {
-        		System.out.println("��� ����: " + car_sort1.get(i).substring(0,4) + " �����: " + car_sort1.get(i).substring(5,6) + " ������: " + car_mileage.get(i) + " ���. ��������: " + car_sort1.get(i).split("-")[2]);
+        		System.out.println("Тип авто: " + car_sort1.get(i).substring(0,4) + " Номер: " + car_sort1.get(i).substring(5,6) + " Пробег: " + car_mileage.get(i) + " Доп. параметр: " + car_sort1.get(i).split("-")[2]);
         	}
         	else {
-        		System.out.println("��� ����: " + car_sort1.get(i).substring(0,4) + " �����: " + car_sort1.get(i).substring(5,6) + " ������: " + car_mileage.get(i) + " ���. ��������: -");
+        		System.out.println("Тип авто: " + car_sort1.get(i).substring(0,4) + " Номер: " + car_sort1.get(i).substring(5,6) + " Пробег: " + car_mileage.get(i) + " Доп. параметр: -");
         	}
         }
 	}
-	// �������� ���������� �� ���. ��������� 
+	// проводим сортировку по доп. параметру 
 	static void sort2() {
 		for(int j = car_argument.size() - 1; j > 0; j--) {
         	for(int i = 0; i < j; i++) {
@@ -235,11 +235,11 @@ public class HomeWork1 {
         		}
         	}
         }
-        System.out.println("���������� �� ���. ���������");
+        System.out.println("Сортировка по доп. параметру");
         
         for(int i = 0; i < car_sort2.size(); i++) {
         	if(car_sort2.get(i).split("-").length == 3) {
-        		System.out.println("��� ����: " + car_sort2.get(i).substring(0,4) + " �����: " + car_sort2.get(i).substring(5,6) + " ������: " + car_mileage.get(i) + " ���. ��������: " + car_sort2.get(i).split("-")[2]);
+        		System.out.println("Тип авто: " + car_sort2.get(i).substring(0,4) + " Номер: " + car_sort2.get(i).substring(5,6) + " Пробег: " + car_mileage.get(i) + " Доп. параметр: " + car_sort2.get(i).split("-")[2]);
         	}
         }
 	}
